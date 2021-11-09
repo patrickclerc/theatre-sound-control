@@ -1,0 +1,24 @@
+<div class="sound-item">
+  <div>
+    <span class="sound-name">{{sound.displayName}}</span>
+    <span [ngClass]="['remote-icon fa', sound.remote ? 'fa-wifi':'fa-laptop']"></span>
+  </div>
+  <button [ngClass]="['btn', 'sound-button', sound.active? 'btn-danger':'btn-success']"
+          (click)="onPlaySound()">
+    <span class="sound-rank">{{sound.rank}}</span>
+    <br>
+    <span [ngClass]="['fa', sound.active ? 'fa-stop':'fa-play']"></span>
+  </button>
+  <div class="row sound-details">
+    <div class="col-md volume"><span class="fa fa-volume-up"></span><span>{{sound.volume}}%</span>
+    </div>
+    <div class="col-md">
+      <button
+        [ngClass]="['loop-btn', 'btn', sound.loop ? 'btn-info' : 'btn-default']"
+        [disabled]="sound.remote"
+        (click)="onToggleLoop()">
+        <span class="fa fa-undo"></span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+.sound-button {
+  font-size: 28px;
+  width: 200px;
+  margin: 10px;
+}
+
+.sound-rank {
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  background: #fff;
+  border: 2px solid #666;
+  color: #666;
+  text-align: center;
+  display: inline-block;
+}
+
+.sound-item {
+  border: 1px solid gray;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 5px;
+}
+
+.sound-name {
+  font-size: 24px;
+}
+
+.remote-icon {
+  font-size: 24px;
+  float: right;
+}
+
+.volume {
+  margin: auto;
+}
+
+.volume > .fa-volume-up {
+  margin: 0 5px;
+  font-size: 22px;
+}
+
+.duration {
+  margin: auto;
+}

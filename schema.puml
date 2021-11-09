@@ -1,0 +1,53 @@
+@startuml
+
+skinparam packageStyle rect
+package Laptop #linen {
+	 package "sqlite" as sqlite <<Database>> {
+	 }
+	 package "expressJS" as expressJS <<Frame>> {
+	 }
+	 package "Chrome / angular" as angular <<Frame>> {
+	 }
+	 package "Sounds (.mp3)" as sounds <<node>> {
+   }
+   package "Mosquitto\n [mqtt client]" as mosquitto <<Frame>> {
+   	}
+}
+
+sqlite <-- expressJS
+sounds <-- expressJS
+mosquitto <-- expressJS :msg
+mosquitto --> expressJS
+angular --> expressJS : HTTP
+angular <-- expressJS : websocket
+
+package "Routeur" #73beec {
+	package "LAN" as lan <<Frame>> {
+	}
+	package "WIFI" as wifi <<Frame>> {
+  }
+}
+
+package "Raspberry Pi" as rpi #FFEEEE {
+	package "NodeRED \n [nodejs]" as nodered<<Frame>> {
+	}
+	package "Mosquitto\n [mqtt broker]" as mosquitto_rpi <<Frame>> {
+	}
+	package "omxplayer" as omxplayer <<Frame>> {
+    }
+	package "Sounds (.mp3)" as sounds_rpi <<node>> {
+  }
+}
+
+nodered --> mosquitto_rpi
+nodered <-- mosquitto_rpi
+nodered --> omxplayer
+omxplayer --> sounds_rpi
+
+Laptop -down-.- wifi
+lan -down- rpi
+
+mosquitto_rpi --> mosquitto : msg
+mosquitto_rpi <-- mosquitto
+
+@enduml

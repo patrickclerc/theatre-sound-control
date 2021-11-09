@@ -1,0 +1,16 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-10">
+      <div class="row">
+        <div
+          class="col-md"
+          *ngFor="let sound of soundList">
+          <app-sound-control [sound]="sound"></app-sound-control>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <app-remote-control></app-remote-control>
+    </div>
+  </div>
+</div>
